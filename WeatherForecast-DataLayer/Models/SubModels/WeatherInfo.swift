@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Weather: Codable {
+struct WeatherInfo: Codable {
     let id: Int
     let main: MainEnum
     let weatherDescription: Description

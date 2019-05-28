@@ -1,5 +1,5 @@
 //
-//  WeatherDetail.swift
+//  MainClass.swift
 //  WeatherForecast
 //
 //  Created by Tornike Gomareli on 5/28/19.
@@ -10,17 +10,18 @@ import Foundation
 
 
 struct WeatherDetail: Codable {
-    let dt: Int
-    let main: MainClass
-    let weather: [Weather]
-    let clouds: Clouds
-    let wind: Wind
-    let rain: Rain
-    let sys: Sys
-    let dtTxt: String
+    let temp, tempMin, tempMax, pressure: Double
+    let seaLevel, grndLevel: Double
+    let humidity, tempKf: Int
     
     enum CodingKeys: String, CodingKey {
-        case dt, main, weather, clouds, wind, rain, sys
-        case dtTxt = "dt_txt"
+        case temp
+        case tempMin = "temp_min"
+        case tempMax = "temp_max"
+        case pressure
+        case seaLevel = "sea_level"
+        case grndLevel = "grnd_level"
+        case humidity
+        case tempKf = "temp_kf"
     }
 }

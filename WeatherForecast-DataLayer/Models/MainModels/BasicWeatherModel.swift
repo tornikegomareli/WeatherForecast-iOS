@@ -9,10 +9,10 @@
 import Foundation
 
 
-struct WeatherModel: Codable {
+struct BasicWeatherModel: Codable {
     let cod: String
     let message: Double
     let cnt: Int
-    let list: [WeatherDetail]
+    let list: [WeatherOfDay]
     let city: City
 }

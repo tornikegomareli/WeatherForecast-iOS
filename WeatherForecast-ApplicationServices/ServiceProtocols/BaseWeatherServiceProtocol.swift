@@ -9,5 +9,5 @@
 import Foundation
 
 protocol BaseWeatherServiceReqeustProtocol {
-    func makeRequest(lat:String,lon:String) -> WeatherModel
+    func makeRequest(lat:String,lon:String) -> BasicWeatherModel
 }
