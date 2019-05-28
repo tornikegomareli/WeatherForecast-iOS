@@ -47,7 +47,7 @@ class NetworkManager {
                     semaphore.signal()
                     
                 } catch let error {
-                    print(error.localizedDescription)
+                    print(error)
                 }
         }).resume()
         

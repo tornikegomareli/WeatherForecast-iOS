@@ -14,4 +14,8 @@ enum Description: String, Codable {
     case clearSky = "clear sky"
     case fewClouds = "few clouds"
     case scatteredClouds = "scattered clouds"
+    case heavyIntensityRain = "heavy intensity rain"
+    case lightRain = "light rain"
+    case overCastClouds = "overcast clouds"
+    
 }

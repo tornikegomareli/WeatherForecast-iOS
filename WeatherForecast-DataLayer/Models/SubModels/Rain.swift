@@ -10,4 +10,9 @@ import Foundation
 
 
 struct Rain: Codable {
+    let the3H: Float
+    
+    enum CodingKeys: String, CodingKey {
+        case the3H = "3h"
+    }
 }

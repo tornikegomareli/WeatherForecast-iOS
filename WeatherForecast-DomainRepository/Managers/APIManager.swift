@@ -12,7 +12,7 @@ import Foundation
 struct APIManager {
     struct WeatherAPI
     {
-        static let BaseEndPoint:String = "api.openweathermap.org/data/2.5/forecast?"
+        static let BaseEndPoint:String = "https://api.openweathermap.org/data/2.5/forecast?"
         
         static let API_KEY:String = "4b22875f640574a14f703820b61d488c"
     }

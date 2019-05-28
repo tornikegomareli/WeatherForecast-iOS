@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol BaseWeatherServiceReqeustProtocol {
-    func makeRequest(lat:String,lon:String) -> BasicWeatherModel
+protocol FiveDayWeatherServiceReqeustProtocol {
+    func GetFiveDayWeatherService(lat:String,lon:String) -> BasicWeatherModel
 }

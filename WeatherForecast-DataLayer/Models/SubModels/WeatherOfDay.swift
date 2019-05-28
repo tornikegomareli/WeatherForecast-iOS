@@ -15,7 +15,7 @@ struct WeatherOfDay: Codable {
     let weather: [WeatherInfo]
     let clouds: Clouds
     let wind: Wind
-    let rain: Rain
+    let rain : Rain? // sometimes value is coming nil from the json
     let sys: Sys
     let dtTxt: String
     

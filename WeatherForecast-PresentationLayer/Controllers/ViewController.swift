@@ -14,9 +14,12 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        var service = MakeRequestService()
+        var service = FiveDayWeatherService()
         
-        service.makeRequest(lat: "35", lon: "139")
+        
+        var data = service.makeRequest(lat: "35", lon: "139")
+        
+        print(data)
     }
 
 

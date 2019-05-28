@@ -14,5 +14,9 @@ enum Icon: String, Codable {
     case the02D = "02d"
     case the02N = "02n"
     case the03N = "03n"
+    case the03D = "03d"
+    case the04D = "04d"
     case the04N = "04n"
+    case the10N = "10n"
+    case the10D = "10d"
 }
