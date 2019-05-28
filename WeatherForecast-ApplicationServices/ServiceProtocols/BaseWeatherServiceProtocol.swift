@@ -9,5 +9,5 @@
 import Foundation
 
 protocol FiveDayWeatherServiceReqeustProtocol {
-    func GetFiveDayWeatherService(lat:String,lon:String) -> BasicWeatherModel
+    func getYourWeatherInfoDependingOnYourLocation(lat:String,lon:String) -> ForecastWeatherModel
 }

@@ -10,5 +10,5 @@ import Foundation
 
 
 class FirebaseService {
-    // this service will send data to firebase
+    
 }

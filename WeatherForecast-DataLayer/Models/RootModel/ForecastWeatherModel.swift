@@ -9,7 +9,7 @@
 import Foundation
 
 
-struct BasicWeatherModel: Codable {
+struct ForecastWeatherModel: Codable {
     let cod: String
     let message: Double
     let cnt: Int
