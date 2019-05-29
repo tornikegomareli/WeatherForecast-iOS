@@ -9,18 +9,18 @@
 import Foundation
 
 class CurrentWeatherService : CurrentWeatherInfoServiceProtol {
-    func getCurrentWeatherInformation(lat: String, lon: String) -> CurrentWeatherModel {
+    func getCurrentWeatherInformation(lat: String, lon: String) -> TodayWeatherModel {
         let baseUrl = generateBaseUrl(latitude: lat, longtitude: lon)
         
         let networkManager = NetworkManager.shared(url: baseUrl)
         
-        let data:CurrentWeatherModel = networkManager
+        let data:TodayWeatherModel = networkManager
             .request()
         
         return data
     }
     
     private func generateBaseUrl(latitude:String, longtitude:String) -> String {
-        return APIManager.WeatherAPI.CurrentWeatherEndPoint + "lat=\(latitude)&lon=\(longtitude)&appid=\(APIManager.WeatherAPI.API_KEY)"
+        return APIManager.WeatherAPI.CurrentWeatherEndPoint + "lat=\(latitude)&lon=\(longtitude)&appid=\(APIManager.WeatherAPI.API_KEY)&units=metric"
     }
 }

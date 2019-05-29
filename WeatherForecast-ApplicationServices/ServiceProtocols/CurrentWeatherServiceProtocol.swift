@@ -9,5 +9,5 @@
 import Foundation
 
 protocol CurrentWeatherInfoServiceProtol {
-    func getCurrentWeatherInformation(lat:String, lon:String) -> CurrentWeatherModel
+    func getCurrentWeatherInformation(lat:String, lon:String) -> TodayWeatherModel
 }

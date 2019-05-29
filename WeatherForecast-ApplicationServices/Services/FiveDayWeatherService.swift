@@ -9,8 +9,9 @@
 import Foundation
 
 class FiveDayWeatherService : FiveDayWeatherServiceReqeustProtocol {
+   
+    
     func getYourWeatherInfoDependingOnYourLocation(lat: String, lon: String) -> ForecastWeatherModel {
-        
         let baseUrl = generateBaseUrl(latitude: lat, longtitude: lon)
         
         let networkManager = NetworkManager.shared(url: baseUrl)
@@ -22,6 +23,6 @@ class FiveDayWeatherService : FiveDayWeatherServiceReqeustProtocol {
     }
     
     private func generateBaseUrl(latitude:String, longtitude:String) -> String {
-     return APIManager.WeatherAPI.ForecastEndPoint + "lat=\(latitude)&lon=\(longtitude)&appid=\(APIManager.WeatherAPI.API_KEY)"
+     return APIManager.WeatherAPI.ForecastEndPoint + "lat=\(latitude)&lon=\(longtitude)&appid=\(APIManager.WeatherAPI.API_KEY)&units=metric"
     }
 }

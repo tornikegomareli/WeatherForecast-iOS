@@ -9,5 +9,5 @@
 import Foundation
 
 struct Sys: Codable {
-    let pod: Pod
+    
 }

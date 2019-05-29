@@ -9,5 +9,5 @@
 import Foundation
 
 struct Wind: Codable {
-    let speed, deg: Double
+    let speed:Double
 }

@@ -26,3 +26,10 @@ extension UIImageView {
         theTask.resume()
     }
 }
+
+extension UIColor{
+    class func acidGreenColor ( alpha: CGFloat = 1.0 ) -> UIColor {
+        return  UIColor.init ( red: 176.0/255.0, green: 191.0/255.0, blue: 26.0/255.0, alpha: alpha ) }
+}
+
+

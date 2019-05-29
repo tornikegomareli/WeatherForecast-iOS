@@ -10,15 +10,13 @@ import Foundation
 
 
 struct WeatherDetail: Codable {
-    let temp, pressure: Double
-    let humidity: Int
-    let tempMin, tempMax, seaLevel, grndLevel: Double
+    let temp: Double
+    let pressure, humidity: Double
+    let tempMin, tempMax: Double
     
     enum CodingKeys: String, CodingKey {
         case temp, pressure, humidity
         case tempMin = "temp_min"
         case tempMax = "temp_max"
-        case seaLevel = "sea_level"
-        case grndLevel = "grnd_level"
     }
 }

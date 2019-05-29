@@ -8,39 +8,46 @@
 
 import UIKit
 import CoreLocation
+import Firebase
 
-class ViewController: UIViewController, CLLocationManagerDelegate {
+class ViewController: BaseViewController, CLLocationManagerDelegate {
 
     @IBOutlet weak var dayLabel: UILabel!
     @IBOutlet weak var weatherCelsiusAndInfoLabel: UILabel!
     @IBOutlet weak var cityNameLabel: UILabel!
     @IBOutlet weak var weatherMainIconImage: UIImageView!
+    @IBOutlet weak var tempMaxLbl: UILabel!
+    @IBOutlet weak var tempMinLbl: UILabel!
+    @IBOutlet weak var windSpeedLbl: UILabel!
+    @IBOutlet weak var pressureLbl: UILabel!
+    @IBOutlet weak var humadityLbl: UILabel!
     
-    var locationManager:CLLocationManager!
-    var todayWeatherModel:CurrentWeatherModel!
+    let locationManager = CLLocationManager()
+    var todayWeatherModel:TodayWeatherModel!
+    let getLocation = GetLocation()
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        
-        initUserData()
-        
-       self.getWeatherInfo(_lat: (locationManager.location?.coordinate.latitude)!,_lon: (locationManager.location?.coordinate.longitude)!)
-       self.getMainIcon()
-       self.setLabels()
-    }
-    
-    fileprivate func initUserData() {
-        locationManager = CLLocationManager()
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.distanceFilter = 200
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.startUpdatingLocation()
-    }
 
-
+        
+        getLocation.run {
+            if let location = $0 {
+                
+                
+                
+                self.getWeatherInfo(_lat: location.coordinate.latitude, _lon: location.coordinate.longitude)
+                self.dataDidLoad()
+                self.getMainIcon()
+                
+                
+                print("location = \(location)")
+            } else {
+                print("Get Location failed \(self.getLocation.didFailWithError)")
+            }
+        }
+        
+    }
 }
 
 extension ViewController {
@@ -56,9 +63,18 @@ extension ViewController {
         self.weatherMainIconImage.image(fromUrl: iconUrl)
     }
     
-    func setLabels() {
+    func dataDidLoad() {
+        
         cityNameLabel.text = todayWeatherModel.name
-        weatherCelsiusAndInfoLabel.text = "\(todayWeatherModel.main.temp)*C | \(todayWeatherModel.weather.first?.weatherDescription)"
-
+        
+        let unwrapedDescription = (todayWeatherModel.weather.first?.weatherDescription)!
+        weatherCelsiusAndInfoLabel.text = "\(todayWeatherModel.main.temp)° C | \(String(describing: unwrapedDescription))"
+        
+        humadityLbl.text = todayWeatherModel.main.humidity.toString() + " %"
+        tempMaxLbl.text =  todayWeatherModel.main.tempMax.toString() + "° C"
+        tempMinLbl.text =  todayWeatherModel.main.tempMin.toString() + "° C"
+        pressureLbl.text = todayWeatherModel.main.pressure.toString()
+        windSpeedLbl.text = todayWeatherModel.wind.speed.toString() + " k/h"
+        
     }
 }
